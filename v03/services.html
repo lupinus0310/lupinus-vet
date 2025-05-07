@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>診療案内 | ルピナスどうぶつ病院</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#ff8c94',
+            secondary: '#fff8f7',
+          },
+          fontFamily: {
+            sans: ['"M PLUS Rounded 1c"', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+</head>
+<body class="bg-secondary text-gray-700 font-sans">
+
+<!-- ヘッダー -->
+<header class="bg-white py-4 px-4 shadow">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between">
+    <div class="flex items-center space-x-4">
+      <img src="lupinus02.PNG" alt="ロゴ" class="w-20 h-auto">
+      <div>
+        <p class="text-sm text-primary">訪問診療</p>
+        <h1 class="text-2xl font-bold text-[#5d4037]">ルピナスどうぶつ病院</h1>
+      </div>
+    </div>
+    <nav class="mt-4 md:mt-0">
+      <ul class="flex space-x-4 text-sm text-[#5d4037] font-semibold divide-x divide-dotted divide-sky-300">
+        <li class="px-3"><a href="index.html" class="hover:text-primary">HOME</a></li>
+        <li class="px-3"><a href="services.html" class="hover:text-primary">診療内容</a></li>
+        <li class="px-3"><a href="area.html" class="hover:text-primary">往診範囲</a></li>
+        <li class="px-3"><a href="column.html" class="hover:text-primary">コラム</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- メイン -->
+<main class="max-w-4xl mx-auto py-10 px-6 md:px-10 space-y-6">
+  <h2 class="text-xl font-bold text-primary text-center mb-6">診療案内</h2>
+  <div class="overflow-x-auto">
+  <table class="mx-auto w-full max-w-3xl text-center border border-gray-300">
+    <thead>
+      <tr class="bg-primary/20">
+        <th class="border px-2 py-2"></th>
+        <th class="border px-2 py-2">月</th>
+        <th class="border px-2 py-2">火</th>
+        <th class="border px-2 py-2">水</th>
+        <th class="border px-2 py-2">木</th>
+        <th class="border px-2 py-2">金</th>
+        <th class="border px-2 py-2">土</th>
+        <th class="border px-2 py-2">日</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="bg-primary/10">
+        <td class="border px-2 py-2 font-bold">9:00-17:00</td>
+        <td class="border px-2 py-2"></td>
+        <td class="border px-2 py-2"></td>
+        <td class="border px-2 py-2">⬤</td>
+        <td class="border px-2 py-2"></td>
+        <td class="border px-2 py-2"></td>
+        <td class="border px-2 py-2"></td>
+        <td class="border px-2 py-2">休診</td>
+      </tr>
+      <tr>
+        <td class="border px-2 py-2 font-bold">19:00-20:00</td>
+        <td class="border px-2 py-2">○</td>
+        <td class="border px-2 py-2">○</td>
+        <td class="border px-2 py-2">休診</td>
+        <td class="border px-2 py-2">○</td>
+        <td class="border px-2 py-2">○</td>
+        <td class="border px-2 py-2">○</td>
+        <td class="border px-2 py-2">休診</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  <div class="space-y-4 leading-relaxed">
+    <p>⚫：水曜日は新横浜駅を起点として往診承ります。</p>
+    <p>○：月・火・木・金・土曜日の日中（9:00-17:00）は他一般病院にて勤務しております。<br>
+    　　勤務時間後に当該病院を起点として往診承ります。</p>
+    <h3 class="font-semibold text-[#5d4037] mt-6">＜月・火・木・金・土曜の夜間往診について＞</h3>
+    <p>
+      往診時間の目安は19:00-20:00ですが、勤務病院での診察状況により変動の可能性がございます。<br>
+    　実際の往診時間に関しては当日17:30頃にご連絡をし、調整させていただきます。
+    </p>
+    <p>
+      勤務先病院にて急患対応等で身動きが取れなくなってしまった場合、診療日の変更をお願いさせていただく場合もございます。<br>
+    　一頭でも多くの命と、ご家族との幸せな生活を守るべく、緊急症例を優先させていただくことをご理解いただければ幸いです。<br>
+    　皆様の優しいご配慮とご協力に感謝いたします。
+    </p>
+    <h3 class="font-semibold text-[#5d4037] mt-6">＜鍼灸治療以外の処置について＞</h3>
+    <p>
+      鍼灸治療以外にも爪切り等のケア、皮下点滴や投薬等の一部の対症療法は対応可能です。<br>
+      ただ、獣医師一人で伺う診療体制のため実施が難しい場合もございます。<br>
+      実施可能な範囲で、お力になれるよう努力いたしますが、全ての症状への対応が叶うわけではありませんのでご了承ください。
+    </p>
+  </div>
+</main>
+
+<!-- フッター -->
+<footer class="bg-primary text-white py-6 text-center mt-16">
+  <p class="text-lg mb-2">ご予約・お問い合わせはこちらから</p>
+  <a href="contact.html" class="inline-block bg-white text-primary font-bold py-2 px-6 rounded-full shadow hover:bg-pink-100 transition">
+    Web予約・お問い合わせ
+  </a>
+</footer>
+
+</body>
+</html>

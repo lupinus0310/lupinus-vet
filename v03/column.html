@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>コラム一覧 | ルピナスどうぶつ病院</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#ff8c94',
+            secondary: '#fff8f7',
+          },
+          fontFamily: {
+            sans: ['"M PLUS Rounded 1c"', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+</head>
+<body class="bg-secondary text-gray-700 font-sans">
+
+<header class="bg-white py-4 px-4 shadow">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between">
+    <div class="flex items-center space-x-4">
+      <img src="lupinus02.PNG" alt="ロゴ" class="w-20 h-auto">
+      <div>
+        <p class="text-sm text-primary">訪問診療</p>
+        <h1 class="text-2xl font-bold text-[#5d4037]">ルピナスどうぶつ病院</h1>
+      </div>
+    </div>
+    <nav class="mt-4 md:mt-0">
+      <ul class="flex space-x-4 text-sm text-[#5d4037] font-semibold divide-x divide-dotted divide-sky-300">
+        <li class="px-3"><a href="index.html" class="hover:text-primary">HOME</a></li>
+        <li class="px-3"><a href="services.html" class="hover:text-primary">診療内容</a></li>
+        <li class="px-3"><a href="area.html" class="hover:text-primary">往診範囲</a></li>
+        <li class="px-3"><a href="column.html" class="hover:text-primary">コラム</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="max-w-4xl mx-auto py-10 px-6 md:px-10 space-y-10">
+  <h2 class="text-xl font-bold text-primary text-center mb-6">コラム一覧</h2>
+  <div id="column-list" class="grid md:grid-cols-2 gap-6"></div>
+</main>
+
+<footer class="bg-primary text-white py-6 text-center mt-16">
+  <p class="text-lg mb-2">ご予約・お問い合わせはこちらから</p>
+  <a href="contact.html" class="inline-block bg-white text-primary font-bold py-2 px-6 rounded-full shadow hover:bg-pink-100 transition">
+    Web予約・お問い合わせ
+  </a>
+</footer>
+
+<script>
+  const articles = [
+  "articles/20250506.html"
+];
+
+  async function loadArticlePreviews() {
+    const container = document.getElementById("column-list");
+
+    for (const file of articles) {
+      try {
+        const res = await fetch(file);
+        const html = await res.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
+
+        const title = doc.querySelector("h2")?.textContent || "タイトル未設定";
+        const dateText = Array.from(doc.querySelectorAll("p")).find(p => p.textContent.includes("投稿日"))?.textContent || "";
+        const img = doc.querySelector("img")?.getAttribute("src") || "default-thumb.jpg";
+        const firstParagraph = doc.querySelector("section p")?.textContent || "";
+
+        const card = document.createElement("a");
+        card.href = file;
+        card.className = "block bg-white rounded-xl shadow hover:shadow-md transition overflow-hidden";
+        card.innerHTML = `
+          <img src="${img}" alt="${title}" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-primary mb-1">${title}</h3>
+            <p class="text-sm text-gray-500 mb-2">${dateText}</p>
+            <p class="text-sm text-gray-600">${firstParagraph}</p>
+          </div>
+        `;
+
+        container.appendChild(card);
+      } catch (err) {
+        console.error(`記事 ${file} の読み込みに失敗しました`, err);
+      }
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", loadArticlePreviews);
+</script>
+
+</body>
+</html>
